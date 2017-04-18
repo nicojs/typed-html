@@ -1,0 +1,27 @@
+{
+  "name": "typed-html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "node tasks/clean.js",
+    "build": "tsc",
+    "pretest": "npm run build",
+    "test": "mocha",
+    "start": "tsc -w -p ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^3.5.0",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^6.0.69",
+    "chai": "^3.5.0",
+    "html-differ": "^1.3.4",
+    "mocha": "^3.2.0",
+    "rimraf": "^2.6.1",
+    "tslint": "^5.0.0",
+    "typescript": "^2.2.2"
+  }
+}

@@ -1,0 +1,185 @@
+declare namespace JSX {
+
+    type Element = string;
+
+    interface HtmlProps<T> extends HtmlAttributes<T> {
+    }
+
+    interface ChangeTargetHtmlProps<T extends HTMLElement> extends ChangeTargetHtmlAttributes<T> {
+    }
+
+    interface IntrinsicElements {
+        a: HtmlProps<HTMLAnchorElement>;
+        abbr: HtmlProps<HTMLElement>;
+        address: HtmlProps<HTMLElement>;
+        area: HtmlProps<HTMLAreaElement>;
+        article: HtmlProps<HTMLElement>;
+        aside: HtmlProps<HTMLElement>;
+        audio: HtmlProps<HTMLAudioElement>;
+        b: HtmlProps<HTMLElement>;
+        base: HtmlProps<HTMLBaseElement>;
+        bdi: HtmlProps<HTMLElement>;
+        bdo: HtmlProps<HTMLElement>;
+        big: HtmlProps<HTMLElement>;
+        blockquote: HtmlProps<HTMLElement>;
+        body: HtmlProps<HTMLBodyElement>;
+        br: HtmlProps<HTMLBRElement>;
+        button: HtmlProps<HTMLButtonElement>;
+        canvas: HtmlProps<HTMLCanvasElement>;
+        caption: HtmlProps<HTMLElement>;
+        cite: HtmlProps<HTMLElement>;
+        code: HtmlProps<HTMLElement>;
+        col: HtmlProps<HTMLTableColElement>;
+        colgroup: HtmlProps<HTMLTableColElement>;
+        data: HtmlProps<HTMLElement>;
+        datalist: HtmlProps<HTMLDataListElement>;
+        dd: HtmlProps<HTMLElement>;
+        del: HtmlProps<HTMLElement>;
+        details: HtmlProps<HTMLElement>;
+        dfn: HtmlProps<HTMLElement>;
+        dialog: HtmlProps<HTMLElement>;
+        div: HtmlProps<HTMLDivElement>;
+        dl: HtmlProps<HTMLDListElement>;
+        dt: HtmlProps<HTMLElement>;
+        em: HtmlProps<HTMLElement>;
+        embed: HtmlProps<HTMLEmbedElement>;
+        fieldset: HtmlProps<HTMLFieldSetElement>;
+        figcaption: HtmlProps<HTMLElement>;
+        figure: HtmlProps<HTMLElement>;
+        footer: HtmlProps<HTMLElement>;
+        form: HtmlProps<HTMLFormElement>;
+        h1: HtmlProps<HTMLHeadingElement>;
+        h2: HtmlProps<HTMLHeadingElement>;
+        h3: HtmlProps<HTMLHeadingElement>;
+        h4: HtmlProps<HTMLHeadingElement>;
+        h5: HtmlProps<HTMLHeadingElement>;
+        h6: HtmlProps<HTMLHeadingElement>;
+        head: HtmlProps<HTMLHeadElement>;
+        header: HtmlProps<HTMLElement>;
+        hgroup: HtmlProps<HTMLElement>;
+        hr: HtmlProps<HTMLHRElement>;
+        html: HtmlProps<HTMLHtmlElement>;
+        i: HtmlProps<HTMLElement>;
+        iframe: HtmlProps<HTMLIFrameElement>;
+        img: HtmlProps<HTMLImageElement>;
+        input: ChangeTargetHtmlProps<HTMLInputElement>;
+        ins: HtmlProps<HTMLModElement>;
+        kbd: HtmlProps<HTMLElement>;
+        keygen: HtmlProps<HTMLElement>;
+        label: HtmlProps<HTMLLabelElement>;
+        legend: HtmlProps<HTMLLegendElement>;
+        li: HtmlProps<HTMLLIElement>;
+        link: HtmlProps<HTMLLinkElement>;
+        main: HtmlProps<HTMLElement>;
+        map: HtmlProps<HTMLMapElement>;
+        mark: HtmlProps<HTMLElement>;
+        menu: HtmlProps<HTMLElement>;
+        menuitem: HtmlProps<HTMLElement>;
+        meta: HtmlProps<HTMLMetaElement>;
+        meter: HtmlProps<HTMLElement>;
+        nav: HtmlProps<HTMLElement>;
+        noindex: HtmlProps<HTMLElement>;
+        noscript: HtmlProps<HTMLElement>;
+        object: HtmlProps<HTMLObjectElement>;
+        ol: HtmlProps<HTMLOListElement>;
+        optgroup: HtmlProps<HTMLOptGroupElement>;
+        option: HtmlProps<HTMLOptionElement>;
+        output: HtmlProps<HTMLElement>;
+        p: HtmlProps<HTMLParagraphElement>;
+        param: HtmlProps<HTMLParamElement>;
+        picture: HtmlProps<HTMLElement>;
+        pre: HtmlProps<HTMLPreElement>;
+        progress: HtmlProps<HTMLProgressElement>;
+        q: HtmlProps<HTMLQuoteElement>;
+        rp: HtmlProps<HTMLElement>;
+        rt: HtmlProps<HTMLElement>;
+        ruby: HtmlProps<HTMLElement>;
+        s: HtmlProps<HTMLElement>;
+        samp: HtmlProps<HTMLElement>;
+        script: HtmlProps<HTMLElement>;
+        section: HtmlProps<HTMLElement>;
+        select: ChangeTargetHtmlProps<HTMLSelectElement>;
+        small: HtmlProps<HTMLElement>;
+        source: HtmlProps<HTMLSourceElement>;
+        span: HtmlProps<HTMLSpanElement>;
+        strong: HtmlProps<HTMLElement>;
+        style: HtmlProps<HTMLStyleElement>;
+        sub: HtmlProps<HTMLElement>;
+        summary: HtmlProps<HTMLElement>;
+        sup: HtmlProps<HTMLElement>;
+        table: HtmlProps<HTMLTableElement>;
+        tbody: HtmlProps<HTMLTableSectionElement>;
+        td: HtmlProps<HTMLTableDataCellElement>;
+        textarea: ChangeTargetHtmlProps<HTMLTextAreaElement>;
+        tfoot: HtmlProps<HTMLTableSectionElement>;
+        th: HtmlProps<HTMLTableHeaderCellElement>;
+        thead: HtmlProps<HTMLTableSectionElement>;
+        time: HtmlProps<HTMLElement>;
+        title: HtmlProps<HTMLTitleElement>;
+        tr: HtmlProps<HTMLTableRowElement>;
+        track: HtmlProps<HTMLTrackElement>;
+        u: HtmlProps<HTMLElement>;
+        ul: HtmlProps<HTMLUListElement>;
+        "var": HtmlProps<HTMLElement>;
+        video: HtmlProps<HTMLVideoElement>;
+        wbr: HtmlProps<HTMLElement>;
+
+        // SVG
+        // svg: React.SVGProps<SVGSVGElement>;
+
+        // animate: React.SVGProps<SVGElement>; // TODO: It is SVGAnimateElement but is not in TypeScript's lib.dom.d.ts for now.
+        // circle: React.SVGProps<SVGCircleElement>;
+        // clipPath: React.SVGProps<SVGClipPathElement>;
+        // defs: React.SVGProps<SVGDefsElement>;
+        // desc: React.SVGProps<SVGDescElement>;
+        // ellipse: React.SVGProps<SVGEllipseElement>;
+        // feBlend: React.SVGProps<SVGFEBlendElement>;
+        // feColorMatrix: React.SVGProps<SVGFEColorMatrixElement>;
+        // feComponentTransfer: React.SVGProps<SVGFEComponentTransferElement>;
+        // feComposite: React.SVGProps<SVGFECompositeElement>;
+        // feConvolveMatrix: React.SVGProps<SVGFEConvolveMatrixElement>;
+        // feDiffuseLighting: React.SVGProps<SVGFEDiffuseLightingElement>;
+        // feDisplacementMap: React.SVGProps<SVGFEDisplacementMapElement>;
+        // feDistantLight: React.SVGProps<SVGFEDistantLightElement>;
+        // feFlood: React.SVGProps<SVGFEFloodElement>;
+        // feFuncA: React.SVGProps<SVGFEFuncAElement>;
+        // feFuncB: React.SVGProps<SVGFEFuncBElement>;
+        // feFuncG: React.SVGProps<SVGFEFuncGElement>;
+        // feFuncR: React.SVGProps<SVGFEFuncRElement>;
+        // feGaussianBlur: React.SVGProps<SVGFEGaussianBlurElement>;
+        // feImage: React.SVGProps<SVGFEImageElement>;
+        // feMerge: React.SVGProps<SVGFEMergeElement>;
+        // feMergeNode: React.SVGProps<SVGFEMergeNodeElement>;
+        // feMorphology: React.SVGProps<SVGFEMorphologyElement>;
+        // feOffset: React.SVGProps<SVGFEOffsetElement>;
+        // fePointLight: React.SVGProps<SVGFEPointLightElement>;
+        // feSpecularLighting: React.SVGProps<SVGFESpecularLightingElement>;
+        // feSpotLight: React.SVGProps<SVGFESpotLightElement>;
+        // feTile: React.SVGProps<SVGFETileElement>;
+        // feTurbulence: React.SVGProps<SVGFETurbulenceElement>;
+        // filter: React.SVGProps<SVGFilterElement>;
+        // foreignObject: React.SVGProps<SVGForeignObjectElement>;
+        // g: React.SVGProps<SVGGElement>;
+        // image: React.SVGProps<SVGImageElement>;
+        // line: React.SVGProps<SVGLineElement>;
+        // linearGradient: React.SVGProps<SVGLinearGradientElement>;
+        // marker: React.SVGProps<SVGMarkerElement>;
+        // mask: React.SVGProps<SVGMaskElement>;
+        // metadata: React.SVGProps<SVGMetadataElement>;
+        // path: React.SVGProps<SVGPathElement>;
+        // pattern: React.SVGProps<SVGPatternElement>;
+        // polygon: React.SVGProps<SVGPolygonElement>;
+        // polyline: React.SVGProps<SVGPolylineElement>;
+        // radialGradient: React.SVGProps<SVGRadialGradientElement>;
+        // rect: React.SVGProps<SVGRectElement>;
+        // stop: React.SVGProps<SVGStopElement>;
+        // switch: React.SVGProps<SVGSwitchElement>;
+        // symbol: React.SVGProps<SVGSymbolElement>;
+        // text: React.SVGProps<SVGTextElement>;
+        // textPath: React.SVGProps<SVGTextPathElement>;
+        // tspan: React.SVGProps<SVGTSpanElement>;
+        // use: React.SVGProps<SVGUseElement>;
+        // view: React.SVGProps<SVGViewElement>;
+    }
+
+}
