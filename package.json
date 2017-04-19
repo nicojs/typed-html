@@ -10,6 +10,9 @@
     "test": "mocha",
     "start": "tsc -w -p ."
   },
+  "engines": {
+    "node": ">=6"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
