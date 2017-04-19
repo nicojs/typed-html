@@ -8,6 +8,7 @@
     "build": "tsc",
     "pretest": "npm run build",
     "test": "mocha",
+    "preversion": "npm test",
     "start": "tsc -w -p ."
   },
   "engines": {
