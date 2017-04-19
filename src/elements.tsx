@@ -1,3 +1,8 @@
+/// <reference path="./jsx/attributes.d.ts" />
+/// <reference path="./jsx/css.d.ts" />
+/// <reference path="./jsx/events.d.ts" />
+/// <reference path="./jsx/intrinsic-elements.d.ts" />
+
 import * as os from 'os';
 
 const capitalACharCode = 'A'.charCodeAt(0);
@@ -43,9 +48,11 @@ const attributesToString = (attributes: Attributes | undefined): string => {
     }
 };
 
-const contentsToString = (contents: string[] | undefined) => {
+const contentsToString = (contents: any[] | undefined) => {
     if (contents) {
-        return contents.join(os.EOL);
+        return contents
+            .map(elements => Array.isArray(elements) ? elements.join(os.EOL) : elements)
+            .join(os.EOL);
     } else {
         return '';
     }
