@@ -20,11 +20,11 @@ declare namespace JSX {
         capture?: boolean;
         cellPadding?: number | string;
         cellSpacing?: number | string;
-        charSet?: string;
+        charset?: string;
         challenge?: string;
         checked?: boolean;
         classID?: string;
-        className?: string;
+        class?: string;
         cols?: number;
         colSpan?: number;
         content?: string;

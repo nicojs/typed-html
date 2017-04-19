@@ -1,3 +1,4 @@
+
 import * as elements from '../src/elements';
 import { expect } from 'chai';
 const logger = require('html-differ/lib/logger');
@@ -20,13 +21,15 @@ describe('Simple html structures', () => {
     testEqual(`<ul>
     <li>1</li>
     <li>2</li>
-    </ul>`, () => <ul><li>1</li><li>2</li></ul>);
+    </ul>`, () => <ul>{[1, 2].map(li => <li>{li}</li>)}</ul>);
     testEqual('<button on-click="doSomething"></button>', () => <button onClick={doSomething}></button>);
+    testEqual('<div class="class-a"></div>', () => <div class="class-a"></div>);
 });
 
 describe('Self-closing html tags', () => {
     testEqual('<area>', () => <area></area>);
     testEqual('<hr>', () => <hr></hr>);
     testEqual('<hr>content</hr>', () => <hr>content</hr>);
+    testEqual('<meta charset="utf8">', () => <meta charset="utf8"></meta>);
 });
 
