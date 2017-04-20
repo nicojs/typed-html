@@ -32,11 +32,19 @@ const toKebabCase = (camelCased: string) => {
     return kebabCased;
 };
 
+const escapeAttrNodeValue = (value: string) => {
+    return value.replace(/(&)|(")|(\u00A0)/g, function (_, amp, quote) {
+        if (amp) return '&amp;';
+        if (quote) return '&quot;';
+        return '&nbsp;';
+    });
+};
+
 const attributeValueToString = (val: AttributeValue): string => {
     if (typeof val === 'function') {
         return val.name;
     } else {
-        return val.toString();
+        return escapeAttrNodeValue(val.toString());
     }
 };
 

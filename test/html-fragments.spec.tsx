@@ -33,3 +33,15 @@ describe('Self-closing html tags', () => {
     testEqual('<meta charset="utf8">', () => <meta charset="utf8"></meta>);
 });
 
+describe('Encoded attributes', () => {
+    it('should encode " as &quot', () => {
+        expect(<div class={'\"'}></div>).to.eq('<div class="&quot;"></div>');
+    });
+    it('should encode & as &amp', () => {
+        expect(<div class={'&'}></div>).to.eq('<div class="&amp;"></div>');
+    });
+    it('should encode \\u00A0 as &nbsp', () => {
+        expect(<div class={'\u00A0'}></div>).to.eq('<div class="&nbsp;"></div>');
+    });
+});
+
