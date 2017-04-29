@@ -1,34 +1,40 @@
 [![Build Status](https://travis-ci.org/nicojs/typed-html.svg?branch=master)](https://travis-ci.org/nicojs/typed-html)
 
-# Typed html
+# Typed HTML
 
-Html templates have never been this easy. Type safe using plain TypeScript with a minimal runtime footprint.
+HTML templates have never been this easy. Type safe using plain TypeScript with a minimal runtime footprint.
+No need to learn a template language, if you know TypeScript, you're set.
 
 This:
 
 ```typescript
 // example.tsx
-
-const items = ['item', 'item2'];
-function handleClick(event: MouseEvent) { }
+const item = 'item';
 const icon = 'icon-add';
-<ul>
-    {items.map(i => <li>{i}</li>)}
+const ul = <ul>
+    <li>{item}</li>
 </ul>;
 
-<button onClick={click}>
+typeof ul; // string
+
+const button = <button onclick="handleClick">
     <i class={icon}></i>
-</button>
+</button>;
+
+typeof button; // string
+
+console.log(ul);
+console.log(button);
 ```
 
-Becomes: 
+Prints: 
 
 ```html
 <ul>
     <li>item</li>
     <li>item2</li>
 </ul>
-<button on-click="handleClick">
+<button onclick="handleClick">
     <i class="icon-add"></i>
 </button>
 ```
@@ -53,6 +59,9 @@ Configure your TypeScript compiler for JSX:
 }
 ```
 
+Although we're configuring the compiler to use [React](https://facebook.github.io/react), this is not used at all.
+Instead, we redirect all jsx element to typed-html's `elements.createElement`.
+
 Now create a \*.ts**x** file. For example: `example.tsx` with the following content:
 
 ```typescript
@@ -60,9 +69,9 @@ Now create a \*.ts**x** file. For example: `example.tsx` with the following cont
 import * as elements from 'typed-html';
 
 const w = 'world';
-const strongTag = <p>Hello <strong>{w}</strong></p>;
+const helloWorld = <p>Hello <strong>{w}</strong></p>;
 
-typeof strongTag; // => Just a string of course
+typeof helloWorld; // => Just a string of course
 ```
 
 ## Supported scenarios
@@ -97,6 +106,48 @@ function listItem(n: number) {
     <ul>
         {[1, 2].map(listItem)}
     </ul>
+```
+
+## Supported elements
+
+All html5 elements and attributes are supported, except for the [svg](https://www.w3.org/TR/SVG/.
+
+* Supported html elements: https://dev.w3.org/html5/html-author/#the-elements
+* Supported html events: http://htmlcss.wikia.com/wiki/HTML5_Event_Attributes
+
+Missing an element? Please create an issue or a PR to add it. It's easy to add.
+
+### Add custom elements
+
+You can add custom elements by adding them to the [intrinsic elements](https://www.typescriptlang.org/docs/handbook/jsx.html#intrinsic-elements) yourself:
+
+```typescript
+// MyCustomElements.d.ts
+
+declare namespace JSX {
+    interface CustomElement {
+        customAttribute?: string;
+    }
+    interface IntrinsicElements {
+        myCustomElement: CustomElement;
+    }
+}
+```
+
+Now you can use it:
+
+```typescript
+// UseCustomElement.ts
+import * as elements from 'typed-html';
+
+const myElement = <myCustomElement customAttribute="customValue"></myCustomElement>
+console.log(myElement);
+```
+
+This prints:
+
+```html
+<my-custom-element custom-attribute="customValue"></my-custom-element>
 ```
 
 ## How it works

@@ -1,5 +1,4 @@
-/// <reference path="./jsx/attributes.d.ts" />
-/// <reference path="./jsx/css.d.ts" />
+/// <reference path="./jsx/element-types.d.ts" />
 /// <reference path="./jsx/events.d.ts" />
 /// <reference path="./jsx/intrinsic-elements.d.ts" />
 
@@ -13,7 +12,7 @@ const isUpper = (input: string, index: number) => {
     return capitalACharCode <= charCode && capitalZCharCode >= charCode;
 };
 
-type AttributeValue = number | string | boolean | Function | object;
+type AttributeValue = number | string | object;
 
 interface Attributes {
     [key: string]: AttributeValue;
@@ -41,8 +40,8 @@ const escapeAttrNodeValue = (value: string) => {
 };
 
 const attributeValueToString = (val: AttributeValue): string => {
-    if (typeof val === 'function') {
-        return val.name;
+    if (val instanceof Date) {
+        return val.toISOString();
     } else {
         return escapeAttrNodeValue(val.toString());
     }

@@ -15,14 +15,12 @@ const testEqual = (expected: string, actual: () => string, itImplementation: (ex
 };
 
 describe('Simple html structures', () => {
-
-    const doSomething = () => { };
     testEqual('<a href="test">a link</a>', () => <a href="test">a link</a>);
     testEqual(`<ul>
     <li>1</li>
     <li>2</li>
     </ul>`, () => <ul>{[1, 2].map(li => <li>{li}</li>)}</ul>);
-    testEqual('<button on-click="doSomething"></button>', () => <button onClick={doSomething}></button>);
+    testEqual('<button onclick="doSomething"></button>', () => <button onclick="doSomething"></button>);
     testEqual('<div class="class-a"></div>', () => <div class="class-a"></div>);
 });
 
@@ -31,6 +29,7 @@ describe('Self-closing html tags', () => {
     testEqual('<hr>', () => <hr></hr>);
     testEqual('<hr>content</hr>', () => <hr>content</hr>);
     testEqual('<meta charset="utf8">', () => <meta charset="utf8"></meta>);
+    testEqual('<video autoplay></video>', () => <video autoplay=""></video>);
 });
 
 describe('Encoded attributes', () => {
@@ -45,3 +44,22 @@ describe('Encoded attributes', () => {
     });
 });
 
+describe('Events', () => {
+    testEqual('<div onclick="click" onmouseover="mouseover" ondrag="ondrag"></div>', () => <div onclick="click" onmouseover="mouseover" ondrag="ondrag"></div>);
+    testEqual('<form onfocus="focus"><input onblur="blur"></form>', () => <form onfocus="focus"><input onblur="blur"></input></form>);
+    testEqual('<video onabort="abort" onseeking="seeking"></video>', () => <video onabort="abort" onseeking="seeking"></video>);
+});
+
+describe('Using a Date type attribute', () => {
+    testEqual('<time datetime="1914-12-20T08:00:00.000Z"></time>', () => <time datetime={new Date('1914-12-20T08:00')}></time>);
+    testEqual('<ins datetime="1914-12-20T08:00:00.000Z">new</ins>', () => <ins datetime={new Date('1914-12-20T08:00')}>new</ins>);
+    testEqual('<del datetime="1914-12-20T08:00:00.000Z">old</del>', () => <del datetime={new Date('1914-12-20T08:00')}>old</del>);
+});
+
+describe('using a number attribute', () => {
+    testEqual('<ol start="1"><li value="2">2</li></ol>', () => <ol start={1}><li value={2}>2</li></ol>);
+    testEqual('<meter value="2" min="1" max="3" low="0" high="5" optimum="3"></meter>', () => <meter value={2} min={1} max={3} low={0} high={5} optimum={3}></meter>);
+    testEqual('<progress value="2" max="5"></progress>', () => <progress value={2} max={5}></progress>);
+    testEqual('<td colspan="2" rowspan="5"></td>', () => <td colspan={2} rowspan={5}></td>);
+    testEqual('<th colspan="2" rowspan="5"></th>', () => <th colspan={2} rowspan={5}></th>);
+});
