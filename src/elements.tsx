@@ -12,7 +12,7 @@ const isUpper = (input: string, index: number) => {
     return capitalACharCode <= charCode && capitalZCharCode >= charCode;
 };
 
-type AttributeValue = number | string | object;
+type AttributeValue = number | string | Date;
 
 interface Attributes {
     [key: string]: AttributeValue;
@@ -21,7 +21,10 @@ interface Attributes {
 const toKebabCase = (camelCased: string) => {
     let kebabCased = '';
     for (let i = 0; i < camelCased.length; i++) {
-        if (isUpper(camelCased, i)) {
+        const prevUpperCased = i > 0 ? isUpper(camelCased, i - 1) : true;
+        const currentUpperCased = isUpper(camelCased, i);
+        const nextUpperCased = i < camelCased.length - 1 ? isUpper(camelCased, i + 1) : true;
+        if (!prevUpperCased && currentUpperCased || currentUpperCased && !nextUpperCased) {
             kebabCased += '-';
             kebabCased += camelCased[i].toLowerCase();
         } else {

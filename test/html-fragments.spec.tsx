@@ -63,3 +63,8 @@ describe('using a number attribute', () => {
     testEqual('<td colspan="2" rowspan="5"></td>', () => <td colspan={2} rowspan={5}></td>);
     testEqual('<th colspan="2" rowspan="5"></th>', () => <th colspan={2} rowspan={5}></th>);
 });
+
+describe('custom elements', () => {
+    testEqual('<custom-element a-custom-attr="value" custom-li-attr="li"></custom-element>', () => <customElement ACustomAttr="value" customLIAttr="li"></customElement>);
+    testEqual('<div some-data="s"></div>', () => <div some-data="s"></div>);
+});
