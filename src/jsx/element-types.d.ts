@@ -112,7 +112,7 @@ declare namespace JSX {
         action?: string; autocomplete?: string; enctype?: string; method?: string; name?: string; novalidate?: string; target?: string;
     }
 
-    interface HtmlHtmlElement extends HtmlTag {
+    interface HtmlHtmlTag extends HtmlTag {
         manifest?: string;
     }
 

@@ -51,7 +51,7 @@ declare namespace JSX {
         head: HtmlTag;
         header: HtmlTag;
         hr: HtmlTag;
-        html: HTMLTag;
+        html: HtmlHtmlTag;
         i: HtmlTag;
         iframe: HtmlIFrameTag;
         img: HtmlImageTag;
