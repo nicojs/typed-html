@@ -32,7 +32,6 @@ Prints:
 ```html
 <ul>
     <li>item</li>
-    <li>item2</li>
 </ul>
 <button onclick="handleClick">
     <i class="icon-add"></i>
@@ -52,7 +51,6 @@ Configure your TypeScript compiler for JSX:
 ```json
 {
     "compilerOptions": {
-        // ...
         "jsx": "react",
         "jsxFactory": "elements.createElement"
     }
@@ -78,7 +76,7 @@ However, the following piece of code will **NOT** compile:
 
 ```typescript
 <foo></foo>; // => Error: Property 'foo' does not exist on type 'JSX.IntrinsicElements'.
-<div foo="bar"></div>; // => Error:  Property 'foo' does not exist on type 'HtmlAnchorTag'
+<a foo="bar"></a>; // => Error:  Property 'foo' does not exist on type 'HtmlAnchorTag'
 ```
 
 ## Supported scenarios
@@ -117,11 +115,7 @@ function listItem(n: number) {
 
 ## Supported HTML
 
-<<<<<<< HEAD
-All html5 elements and attributes are supported, except for the [svg](https://www.w3.org/TR/SVG/).
-=======
 All HTML elements and attributes are supported, except for the [svg](https://www.w3.org/TR/SVG/).
->>>>>>> b1186fd... docs(readme): Clarify some edge cases
 
 * Supported html elements: https://dev.w3.org/html5/html-author/#the-elements
 * Supported html events: http://htmlcss.wikia.com/wiki/HTML5_Event_Attributes
@@ -149,15 +143,18 @@ See [this code](https://github.com/nicojs/typed-html/blob/master/src/elements.ts
 All HTML attributes support a string value, however some attributes also support a [`number`](https://developer.mozilla.org/en-US/docs/Glossary/Number) or [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/prototype) type:
 
 ```typescript
-<meter value={1} min={0} max={5} low={1} high={4} optimum={3}></meter>; // => <meter value="1" min="0" max="5" low="1" high="4" optimum="3"></meter>
+<meter value={1} min={0} max={5} low={1} high={4} optimum={3}></meter>; 
+// => <meter value="1" min="0" max="5" low="1" high="4" optimum="3"></meter>
 <ol start={3}></ol>;
 <progress value={3} max={4}></progress>;
 <td colspan={3} rowspan={3}></td>;
 <th colspan={3} rowspan={3}></th>;
 
-<time datetime={new Date('1914-12-20T08:00')}></time>; // => <time datetime="1914-12-20T08:00:00.000Z"></time>
-<ins datetime={new Date('1914-12-20T08:00')}>new</ins>;
-<del datetime={new Date('1914-12-20T08:00')}>old</del>;
+const date = new Date('1914-12-20T08:00');
+<time datetime={date}></time>; 
+// => <time datetime="1914-12-20T08:00:00.000Z"></time>
+<ins datetime={date}>updated</ins>;
+<del datetime={date}>old</del>;
 ```
 
 ## Custom elements
@@ -203,7 +200,7 @@ Custom attribute names are already supported out-of-the-box for attributes with 
 
 ### Transformation
 
-As a browser is case insensitive when it comes to element and attribute names, it is common practice to use [kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles) for this. However `<custom-element>` is not allowed in TypeScript. Therefor therefore `typed-html` will transform `<customElement></customElement>` to `<custom-element></custom-element>`.
+As a browser is case insensitive when it comes to element and attribute names, it is common practice to use [kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles) for this. However `<custom-element></custom-element>` is not allowed in TypeScript. Therefor `typed-html` will transform `<customElement></customElement>` to `<custom-element></custom-element>`.
 
 This transformation also works for custom attributes you define on a custom element yourself. For example:
 
@@ -217,8 +214,31 @@ Becomes
 <custom-element a-custom-attr="value"></custom-element>
 ``` 
 
-## How it works
+## How this all works
 
 The way this works is by using TypeScript's jsx support, but not for jsx/react interoperability. Instead, it defines the *normal* html tags as `IntrinsicElements` in the JSX namespace.
 
 At runtime, the `elements.createElement` function is called for every html tag. It simply converts the given element to a string with minimal overhead.
+
+This:
+
+```typescript
+<ol start={2}>{[1, 2].map(i => <li>{i}</li>)}</ol>
+```
+
+Compiles to:
+
+```javascript
+elements.createElement("ol", { start: 2 }, [1, 2].map(function (li) { 
+    return elements.createElement("li", null, li); 
+}));
+```
+
+Which is translated to:
+
+```html
+<ol start="2">
+    <li>1</li>
+    <li>2</li>
+</ol>
+```
