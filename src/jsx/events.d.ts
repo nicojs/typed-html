@@ -3,7 +3,7 @@ declare namespace JSX {
     // http://htmlcss.wikia.com/wiki/HTML5_Event_Attributes
 
     // Only used in the <body> element to specify events triggered for a window object. 
-    interface HtmlBodyElement {
+    interface HtmlBodyTag {
         onafterprint?: string;
         onbeforeprint?: string;
         onbeforeonload?: string;
@@ -26,7 +26,7 @@ declare namespace JSX {
 
     }
 
-    interface HtmlElement {
+    interface HtmlTag {
         oncontextmenu?: string;
         onkeydown?: string;
         onkeypress?: string;
@@ -61,13 +61,13 @@ declare namespace JSX {
         onselect?: string;
         onsubmit?: string;
     }
-    interface HtmlInputElement extends FormEvents {
+    interface HtmlInputTag extends FormEvents {
     }
 
-    interface HtmlFieldSetElement extends FormEvents {
+    interface HtmlFieldSetTag extends FormEvents {
     }
 
-    interface HtmlFormElement extends FormEvents {
+    interface HtmlFormTag extends FormEvents {
     }
 
 
@@ -97,9 +97,9 @@ declare namespace JSX {
         onvolumechange?: string;
         onwaiting?: string;
     }
-    interface HtmlAudioElement extends MediaEvents { }
-    interface HtmlEmbedElement extends MediaEvents { }
-    interface HtmlImageElement extends MediaEvents { }
-    interface HtmlObjectElement extends MediaEvents { }
-    interface HtmlVideoElement extends MediaEvents { }
+    interface HtmlAudioTag extends MediaEvents { }
+    interface HtmlEmbedTag extends MediaEvents { }
+    interface HtmlImageTag extends MediaEvents { }
+    interface HtmlObjectTag extends MediaEvents { }
+    interface HtmlVideoTag extends MediaEvents { }
 }
