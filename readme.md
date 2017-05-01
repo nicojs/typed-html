@@ -200,7 +200,7 @@ Custom attribute names are already supported out-of-the-box for attributes with 
 
 ### Transformation
 
-As a browser is case insensitive when it comes to element and attribute names, it is common practice to use [kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles) for this. However `<custom-element></custom-element>` is not allowed in TypeScript. Therefor `typed-html` will transform `<customElement></customElement>` to `<custom-element></custom-element>`.
+As a browser is case insensitive when it comes to element and attribute names, it is common practice to use [kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles) for this. However `<custom-element></custom-element>` is not allowed in TypeScript. Therefore `typed-html` will transform `<customElement></customElement>` to `<custom-element></custom-element>`.
 
 This transformation also works for custom attributes you define on a custom element yourself. For example:
 
@@ -234,7 +234,7 @@ elements.createElement("ol", { start: 2 }, [1, 2].map(function (li) {
 }));
 ```
 
-Which is translated to:
+Which translates to:
 
 ```html
 <ol start="2">
