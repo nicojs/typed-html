@@ -59,7 +59,7 @@ Configure your TypeScript compiler for JSX:
 }
 ```
 
-Although we're configuring the compiler to use [React](https://facebook.github.io/react), this is not used at all.
+Although we're configuring the compiler to use [React](https://facebook.github.io/react), this is not what is being used.
 Instead, we redirect all jsx element to typed-html's `elements.createElement`.
 
 Now create a \*.ts**x** file. For example: `example.tsx` with the following content:
@@ -74,6 +74,13 @@ const helloWorld = <p>Hello <strong>{w}</strong></p>;
 typeof helloWorld; // => Just a string of course
 ```
 
+However, the following piece of code will **NOT** compile:
+
+```typescript
+<foo></foo>; // => Error: Property 'foo' does not exist on type 'JSX.IntrinsicElements'.
+<div foo="bar"></div>; // => Error:  Property 'foo' does not exist on type 'HtmlAnchorTag'
+```
+
 ## Supported scenarios
 
 All template scenarios are supported with plain TypeScript.
@@ -83,7 +90,7 @@ All template scenarios are supported with plain TypeScript.
 Conditional template with `?`
 
 ```typescript
-<div>Random > 0.5: {Math.random()>.5 ? <strong>yes</strong> : 'no'}</div>
+<div>Random > 0.5: {Math.random() > .5 ? <strong>yes</strong> : 'no'}</div>
 ```
 
 Repeat a template with `Array.map`
@@ -108,16 +115,52 @@ function listItem(n: number) {
 </ul>
 ```
 
-## Supported elements
+## Supported HTML
 
+<<<<<<< HEAD
 All html5 elements and attributes are supported, except for the [svg](https://www.w3.org/TR/SVG/).
+=======
+All HTML elements and attributes are supported, except for the [svg](https://www.w3.org/TR/SVG/).
+>>>>>>> b1186fd... docs(readme): Clarify some edge cases
 
 * Supported html elements: https://dev.w3.org/html5/html-author/#the-elements
 * Supported html events: http://htmlcss.wikia.com/wiki/HTML5_Event_Attributes
 
-Missing an element? Please create an issue or a PR to add it. It's easy to add.
+Missing an element or attribute? Please create an issue or a PR to add it. It's easy to add.
 
-### Add custom elements
+### Void elements
+
+[Void elements](https://www.w3.org/TR/html51/syntax.html#void-elements) (elements without closing tags) are supported, however you should close them in TypeScript.
+
+```typescript
+const img = <img href="/foo/bar.png">; // => Error! JSX element 'img' has no corresponding closing tag.
+``` 
+
+In the example above, closing the image tag is required for valid TSX code:
+
+```typescript
+const img = <img href="/foo/bar.png"></img>; // => '<img href="/foo/bar.png">'
+```
+
+See [this code](https://github.com/nicojs/typed-html/blob/master/src/elements.tsx#L68) for a list of supported void elements.
+
+### Attribute types
+
+All HTML attributes support a string value, however some attributes also support a [`number`](https://developer.mozilla.org/en-US/docs/Glossary/Number) or [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/prototype) type:
+
+```typescript
+<meter value={1} min={0} max={5} low={1} high={4} optimum={3}></meter>; // => <meter value="1" min="0" max="5" low="1" high="4" optimum="3"></meter>
+<ol start={3}></ol>;
+<progress value={3} max={4}></progress>;
+<td colspan={3} rowspan={3}></td>;
+<th colspan={3} rowspan={3}></th>;
+
+<time datetime={new Date('1914-12-20T08:00')}></time>; // => <time datetime="1914-12-20T08:00:00.000Z"></time>
+<ins datetime={new Date('1914-12-20T08:00')}>new</ins>;
+<del datetime={new Date('1914-12-20T08:00')}>old</del>;
+```
+
+## Custom elements
 
 You can add custom elements by adding them to the [intrinsic elements](https://www.typescriptlang.org/docs/handbook/jsx.html#intrinsic-elements) yourself:
 
@@ -149,6 +192,30 @@ This prints:
 ```html
 <my-custom-element custom-attribute="customValue"></my-custom-element>
 ```
+
+### Custom attributes
+
+Custom attribute names are already supported out-of-the-box for attributes with a dash (`-`) in the name. For example: 
+
+```typescript
+<button data-menu-item="3"></button>
+```
+
+### Transformation
+
+As a browser is case insensitive when it comes to element and attribute names, it is common practice to use [kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles) for this. However `<custom-element>` is not allowed in TypeScript. Therefor therefore `typed-html` will transform `<customElement></customElement>` to `<custom-element></custom-element>`.
+
+This transformation also works for custom attributes you define on a custom element yourself. For example:
+
+```typescript
+<customElement aCustomAttr="value"></customElement>
+```
+
+Becomes
+
+```html
+<custom-element a-custom-attr="value"></custom-element>
+``` 
 
 ## How it works
 
