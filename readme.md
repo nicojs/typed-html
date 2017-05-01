@@ -101,16 +101,16 @@ Want a helper template? Just call a function
 
 ```typescript
 function listItem(n: number) {
-        return <li>{n}</li>;
-    }
-    <ul>
-        {[1, 2].map(listItem)}
-    </ul>
+    return <li>{n}</li>;
+}
+<ul>
+    {[1, 2].map(listItem)}
+</ul>
 ```
 
 ## Supported elements
 
-All html5 elements and attributes are supported, except for the [svg](https://www.w3.org/TR/SVG/.
+All html5 elements and attributes are supported, except for the [svg](https://www.w3.org/TR/SVG/).
 
 * Supported html elements: https://dev.w3.org/html5/html-author/#the-elements
 * Supported html events: http://htmlcss.wikia.com/wiki/HTML5_Event_Attributes
