@@ -174,7 +174,14 @@ declare namespace JSX {
     }
 
     interface HtmlLinkTag extends HtmlTag {
-        href?: string; crossorigin?: string; rel?: string; media?: string; hreflang?: string; type?: string; sizes?: string;
+        href?: string;
+        crossorigin?: string;
+        rel?: string;
+        media?: string;
+        hreflang?: string;
+        type?: string;
+        sizes?: string;
+        integrity?: string;
     }
 
     interface HtmlMapTag extends HtmlTag {
@@ -278,7 +285,7 @@ declare namespace JSX {
     }
 
     interface HtmlTableHeaderCellTag extends HtmlTag {
-        colspan?:string | number; rowspan?: string | number; headers?: string; scope?: string;
+        colspan?: string | number; rowspan?: string | number; headers?: string; scope?: string;
     }
 
     interface HtmlTimeTag extends HtmlTag {
