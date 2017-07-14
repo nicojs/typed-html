@@ -1,3 +1,12 @@
+<a name="0.3.3"></a>
+## 0.3.3 (2017-07-14)
+
+* test: Make tests timezone independent ([916adf4](https://github.com/nicojs/typed-html/commit/916adf4))
+* docs: Add changelog ([8af1b68](https://github.com/nicojs/typed-html/commit/8af1b68))
+* feat: add 'role' attribute to all html elements ([0bb4284](https://github.com/nicojs/typed-html/commit/0bb4284))
+
+
+
 <a name="0.3.2"></a>
 ## 0.3.2 (2017-05-30)
 
