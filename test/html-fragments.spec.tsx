@@ -51,9 +51,9 @@ describe('Events', () => {
 });
 
 describe('Using a Date type attribute', () => {
-    testEqual('<time datetime="1914-12-20T08:00:00.000Z"></time>', () => <time datetime={new Date('1914-12-20T08:00')}></time>);
-    testEqual('<ins datetime="1914-12-20T08:00:00.000Z">new</ins>', () => <ins datetime={new Date('1914-12-20T08:00')}>new</ins>);
-    testEqual('<del datetime="1914-12-20T08:00:00.000Z">old</del>', () => <del datetime={new Date('1914-12-20T08:00')}>old</del>);
+    testEqual('<time datetime="1914-12-20T08:00:00.000Z"></time>', () => <time datetime={new Date('1914-12-20T08:00+0000')}></time>);
+    testEqual('<ins datetime="1914-12-20T08:00:00.000Z">new</ins>', () => <ins datetime={new Date('1914-12-20T08:00+0000')}>new</ins>);
+    testEqual('<del datetime="1914-12-20T08:00:00.000Z">old</del>', () => <del datetime={new Date('1914-12-20T08:00+0000')}>old</del>);
 });
 
 describe('using a number attribute', () => {
