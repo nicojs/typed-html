@@ -9,6 +9,7 @@ declare namespace JSX {
         dir?: string;
         hidden?: string;
         id?: string;
+        role?: string;
         lang?: string;
         spellcheck?: string;
         style?: string;
