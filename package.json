@@ -4,6 +4,10 @@
   "description": "",
   "main": "src/elements.js",
   "typings": "src/elements.tsx",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicojs/typed-html"
+  },
   "scripts": {
     "prebuild": "node tasks/clean.js",
     "build": "tsc",
@@ -15,8 +19,10 @@
   "engines": {
     "node": ">=6"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "typescript", "html", "typesafe", "template"
+  ],
+  "author": "Nico Jansen <jansennico@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@types/chai": "^3.5.0",
