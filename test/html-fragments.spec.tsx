@@ -22,6 +22,7 @@ describe('Simple html structures', () => {
     </ul>`, () => <ul>{[1, 2].map(li => <li>{li}</li>)}</ul>);
     testEqual('<button onclick="doSomething"></button>', () => <button onclick="doSomething"></button>);
     testEqual('<div class="class-a"></div>', () => <div class="class-a"></div>);
+    testEqual('<script src="jquery.js" integrity="sha256-123=" crossorigin="anonymous"></script>', () => <script src="jquery.js" integrity="sha256-123=" crossorigin="anonymous"></script>);
 });
 
 describe('Self-closing html tags', () => {
