@@ -255,7 +255,14 @@ declare namespace JSX {
     }
 
     interface HtmlScriptTag extends HtmlTag {
-        src?: string; type?: string; charset?: string; async?: string; defer?: string; crossorigin?: string; text?: string;
+        src?: string; 
+        type?: string; 
+        charset?: string; 
+        async?: string;
+        defer?: string; 
+        crossorigin?: string; 
+        integrity?: string; 
+        text?: string;
     }
 
     interface HtmlDetailsTag extends HtmlTag {
