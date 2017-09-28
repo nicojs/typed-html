@@ -14,7 +14,7 @@
     "pretest": "npm run build",
     "test": "mocha",
     "preversion": "npm test",
-    "version": "npm generate-changelog",
+    "version": "npm run generate-changelog",
     "generate-changelog": "conventional-changelog -r 0 > CHANGELOG.md && git add CHANGELOG.md",
     "start": "tsc -w -p ."
   },
