@@ -14,6 +14,8 @@
     "pretest": "npm run build",
     "test": "mocha",
     "preversion": "npm test",
+    "version": "npm generate-changelog",
+    "generate-changelog": "conventional-changelog -r 0 > CHANGELOG.md && git add CHANGELOG.md",
     "start": "tsc -w -p ."
   },
   "engines": {
@@ -32,6 +34,7 @@
     "@types/mocha": "^2.2.41",
     "@types/node": "^6.0.69",
     "chai": "^3.5.0",
+    "conventional-changelog-cli": "^1.3.3",
     "html-differ": "^1.3.4",
     "mocha": "^3.2.0",
     "rimraf": "^2.6.1",

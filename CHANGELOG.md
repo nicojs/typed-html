@@ -1,8 +1,19 @@
+<a name="0.4.0"></a>
+# 0.4.0 (2017-09-26)
+
+* 0.4.0 ([935b486](https://github.com/nicojs/typed-html/commit/935b486))
+* docs(package): Add repo, author and keywords fields ([cfd1d2c](https://github.com/nicojs/typed-html/commit/cfd1d2c))
+* feat(integrity): Add `integrity` to `script` tag. ([3bfb42b](https://github.com/nicojs/typed-html/commit/3bfb42b))
+
+
+
 <a name="0.3.3"></a>
 ## 0.3.3 (2017-07-14)
 
-* test: Make tests timezone independent ([916adf4](https://github.com/nicojs/typed-html/commit/916adf4))
+* 0.3.3 ([fd005b2](https://github.com/nicojs/typed-html/commit/fd005b2))
 * docs: Add changelog ([8af1b68](https://github.com/nicojs/typed-html/commit/8af1b68))
+* docs: Update changelog ([ff48418](https://github.com/nicojs/typed-html/commit/ff48418))
+* test: Make tests timezone independent ([916adf4](https://github.com/nicojs/typed-html/commit/916adf4))
 * feat: add 'role' attribute to all html elements ([0bb4284](https://github.com/nicojs/typed-html/commit/0bb4284))
 
 
