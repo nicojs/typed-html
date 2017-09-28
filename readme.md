@@ -140,7 +140,7 @@ See [this code](https://github.com/nicojs/typed-html/blob/master/src/elements.ts
 
 ### Attribute types
 
-All HTML attributes support a string value, however some attributes also support a [`number`](https://developer.mozilla.org/en-US/docs/Glossary/Number) or [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/prototype) type:
+All HTML attributes support a string value, however some attributes also support a [`number`](https://www.w3.org/TR/html51/infrastructure.html#numbers), [`Date`](https://www.w3.org/TR/html51/infrastructure.html#dates-and-times) or [`boolean`](https://www.w3.org/TR/html51/infrastructure.html#sec-boolean-attributes)(or absent value) type:
 
 ```typescript
 <meter value={1} min={0} max={5} low={1} high={4} optimum={3}></meter>; 
@@ -155,6 +155,11 @@ const date = new Date('1914-12-20T08:00');
 // => <time datetime="1914-12-20T08:00:00.000Z"></time>
 <ins datetime={date}>updated</ins>;
 <del datetime={date}>old</del>;
+
+// => <form> <input type="checkbox" checked> </form>
+<form novalidate={false}> 
+    <input type="checkbox" checked disabled={false}></input>
+</form>
 ```
 
 ## Custom elements

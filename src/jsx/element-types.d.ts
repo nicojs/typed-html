@@ -7,15 +7,16 @@ declare namespace JSX {
         class?: string;
         contenteditable?: string;
         dir?: string;
-        hidden?: string;
+        hidden?: string | boolean;
         id?: string;
         role?: string;
         lang?: string;
-        spellcheck?: string;
+        draggable?: string | boolean;
+        spellcheck?: string | boolean;
         style?: string;
         tabindex?: string;
         title?: string;
-        translate?: string;
+        translate?: string | boolean;
     }
 
     interface HtmlAnchorTag extends HtmlTag {
@@ -70,7 +71,7 @@ declare namespace JSX {
         form?: string;
         method?: string;
         name?: string;
-        novalidate?: string;
+        novalidate?: string | boolean;
         target?: string;
         type?: string;
         value?: string;
@@ -99,7 +100,7 @@ declare namespace JSX {
     }
     interface HtmlEmbedTag extends HtmlTag {
         src?: string; type?: string; width?: string; height?: string;
-        [anything: string]: string | undefined;
+        [anything: string]: string | boolean | undefined;
     }
 
     interface HtmlFieldSetTag extends HtmlTag {
@@ -110,7 +111,7 @@ declare namespace JSX {
 
     interface HtmlFormTag extends HtmlTag {
         acceptCharset?: string;
-        action?: string; autocomplete?: string; enctype?: string; method?: string; name?: string; novalidate?: string; target?: string;
+        action?: string; autocomplete?: string; enctype?: string; method?: string; name?: string; novalidate?: string | boolean; target?: string;
     }
 
     interface HtmlHtmlTag extends HtmlTag {
@@ -131,8 +132,8 @@ declare namespace JSX {
         alt?: string;
         autocomplete?: string;
         autofocus?: string;
-        checked?: string;
-        disabled?: string;
+        checked?: string | boolean;
+        disabled?: string | boolean;
         enctype?: string;
         form?: string;
         height?: string;
@@ -143,7 +144,7 @@ declare namespace JSX {
         min?: string;
         multiple?: string;
         name?: string;
-        novalidate?: string;
+        novalidate?: string | boolean;
         pattern?: string;
         placeholder?: string;
         readonly?: string;
@@ -255,13 +256,13 @@ declare namespace JSX {
     }
 
     interface HtmlScriptTag extends HtmlTag {
-        src?: string; 
-        type?: string; 
-        charset?: string; 
+        src?: string;
+        type?: string;
+        charset?: string;
         async?: string;
-        defer?: string; 
-        crossorigin?: string; 
-        integrity?: string; 
+        defer?: string;
+        crossorigin?: string;
+        integrity?: string;
         text?: string;
     }
 

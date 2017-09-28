@@ -12,7 +12,7 @@ const isUpper = (input: string, index: number) => {
     return capitalACharCode <= charCode && capitalZCharCode >= charCode;
 };
 
-type AttributeValue = number | string | Date;
+type AttributeValue = number | string | Date | boolean;
 
 interface Attributes {
     [key: string]: AttributeValue;
@@ -42,17 +42,31 @@ const escapeAttrNodeValue = (value: string) => {
     });
 };
 
-const attributeValueToString = (val: AttributeValue): string => {
-    if (val instanceof Date) {
-        return val.toISOString();
-    } else {
-        return escapeAttrNodeValue(val.toString());
+const attributeToString = (attributes: Attributes) => (name: string): string => {
+    const value = attributes[name];
+    const formattedName = toKebabCase(name);
+    const makeAttribute = (value: string) => `${formattedName}="${value}"`;
+    if (value instanceof Date) {
+        return makeAttribute(value.toISOString());
+    } else switch (typeof value) {
+        case 'boolean':
+            // https://www.w3.org/TR/2008/WD-html5-20080610/semantics.html#boolean
+            if (value) {
+                return formattedName;
+            } else {
+                return '';
+            }
+        default:
+            return makeAttribute(escapeAttrNodeValue(value.toString()));
     }
 };
 
 const attributesToString = (attributes: Attributes | undefined): string => {
     if (attributes) {
-        return ' ' + Object.keys(attributes).map(attribute => `${toKebabCase(attribute)}="${attributeValueToString(attributes[attribute])}"`).join(' ');
+        return ' ' + Object.keys(attributes)
+            .map(attributeToString(attributes))
+            .filter(attribute => attribute.length) // filter out negative boolean attributes
+            .join(' ');
     } else {
         return '';
     }

@@ -33,6 +33,17 @@ describe('Self-closing html tags', () => {
     testEqual('<video autoplay></video>', () => <video autoplay=""></video>);
 });
 
+describe('Boolean attributes', () => {
+    // https://www.w3.org/TR/html5/infrastructure.html#boolean-attributes
+    testEqual('<input checked>', () => <input checked={true}></input>);
+    testEqual('<input>', () => <input checked={false}></input>);
+    testEqual('<input disabled>', () => <input disabled={true}></input>);
+    testEqual('<input>', () => <input disabled={false}></input>);
+    testEqual('<p draggable spellcheck hidden translate></p>', () => <p draggable spellcheck hidden translate></p>);
+    testEqual('<p></p>', () => <p draggable={false} spellcheck={false} hidden={false} translate={false}></p>);
+    testEqual('<form novalidate></form>', () => <form novalidate></form>)
+});
+
 describe('Encoded attributes', () => {
     it('should encode " as &quot', () => {
         expect(<div class={'\"'}></div>).to.eq('<div class="&quot;"></div>');
