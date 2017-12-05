@@ -1,6 +1,15 @@
+<a name="0.5.1"></a>
+## 0.5.1 (2017-12-05)
+
+* chore(package-lock): Add package lock file ([7df4e1b](https://github.com/nicojs/typed-html/commit/7df4e1b))
+* docks(package): Add a description ([3e5765e](https://github.com/nicojs/typed-html/commit/3e5765e))
+
+
+
 <a name="0.5.0"></a>
 # 0.5.0 (2017-09-28)
 
+* 0.5.0 ([7a3fe6a](https://github.com/nicojs/typed-html/commit/7a3fe6a))
 * chore(build): Fix generate changelog script ([68ea3d9](https://github.com/nicojs/typed-html/commit/68ea3d9))
 * docs(changelog): Add changelog ([eafa2eb](https://github.com/nicojs/typed-html/commit/eafa2eb))
 * feat(boolean attributes): Add support for boolean attributes ([f6760e9](https://github.com/nicojs/typed-html/commit/f6760e9))
