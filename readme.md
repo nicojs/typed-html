@@ -113,6 +113,31 @@ function listItem(n: number) {
 </ul>
 ```
 
+#### Using a helper template like an element
+
+Want a helper component? Create a function that implements CustomElementHandler and you can call it like an HTML element. 
+
+```typescript
+import {Attributes, CustomElementHandler} from "typed-html"
+
+function Button(attributes: Attributes | undefined, contents: string[]) {
+    return <div><button type="button" class="original-class" {...attributes}>{contents}</button></div>;
+}
+// Or 
+const Button: CustomElementHandler = (attributes, contents) => <div><button type="button" class="original-class" {...attributes}>{contents}</button></div>;
+}
+    
+console.log(<Button style="color:#f00">Button Text</Button>);
+```
+
+Prints: 
+
+```html
+<div>
+    <button type="button" class="original-class" style="color:#f00">Button Text</button>
+</div>
+```
+
 ## Supported HTML
 
 All HTML elements and attributes are supported, except for the [svg](https://www.w3.org/TR/SVG/).

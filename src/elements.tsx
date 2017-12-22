@@ -4,6 +4,16 @@
 
 import * as os from 'os';
 
+type AttributeValue = number | string | Date | boolean;
+
+export interface CustomElementHandler {
+    (attributes: Attributes | undefined, contents: string[]): string
+}
+
+export interface Attributes {
+    [key: string]: AttributeValue;
+}
+
 const capitalACharCode = 'A'.charCodeAt(0);
 const capitalZCharCode = 'Z'.charCodeAt(0);
 
@@ -11,12 +21,6 @@ const isUpper = (input: string, index: number) => {
     const charCode = input.charCodeAt(index);
     return capitalACharCode <= charCode && capitalZCharCode >= charCode;
 };
-
-type AttributeValue = number | string | Date | boolean;
-
-interface Attributes {
-    [key: string]: AttributeValue;
-}
 
 const toKebabCase = (camelCased: string) => {
     let kebabCased = '';
@@ -103,11 +107,17 @@ const isVoidElement = (tagName: string) => {
     ].indexOf(tagName) > -1;
 };
 
-export function createElement(name: string, attributes: Attributes | undefined, ...contents: string[]) {
-    const tagName = toKebabCase(name);
-    if (isVoidElement(tagName) && !contents.length) {
-        return `<${tagName}${attributesToString(attributes)}>`;
+export function createElement(name: string | CustomElementHandler,
+                              attributes: Attributes | undefined,
+                              ...contents: string[]) {
+    if (typeof name === 'function') {
+        return name(attributes, contents);
     } else {
-        return `<${tagName}${attributesToString(attributes)}>${contentsToString(contents)}</${tagName}>`;
+        const tagName = toKebabCase(name);
+        if (isVoidElement(tagName) && !contents.length) {
+            return `<${tagName}${attributesToString(attributes)}>`;
+        } else {
+            return `<${tagName}${attributesToString(attributes)}>${contentsToString(contents)}</${tagName}>`;
+        }
     }
 }
