@@ -80,3 +80,15 @@ describe('custom elements', () => {
     testEqual('<custom-element a-custom-attr="value" custom-li-attr="li"></custom-element>', () => <customElement ACustomAttr="value" customLIAttr="li"></customElement>);
     testEqual('<div some-data="s"></div>', () => <div some-data="s"></div>);
 });
+
+describe('helper components', () => {
+    const Header: elements.CustomElementHandler = (attributes, contents) => <h1 {...attributes}>{contents}</h1>;
+
+    function Button(attributes: elements.Attributes | undefined, contents: string[]) {
+        return <button type='button' class='original-class' {...attributes}>{contents}</button>;
+    }
+
+    testEqual('<h1 class="title"><span>Header Text</span></h1>', () => <Header class='title'><span>Header Text</span></Header>);
+    testEqual('<button class="override" type="button"></button>', () => <Button class='override'/>);
+    testEqual('<button class="original-class" type="button">Button Text</button>', () => <Button>Button Text</Button>);
+});
