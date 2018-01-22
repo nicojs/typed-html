@@ -1,6 +1,14 @@
+<a name="0.6.0"></a>
+# 0.6.0 (2018-01-22)
+
+* feat(helper components): Add support for using functions as HTML elements ([bdf0b3a](https://github.com/nicojs/typed-html/commit/bdf0b3a))
+
+
+
 <a name="0.5.1"></a>
 ## 0.5.1 (2017-12-05)
 
+* 0.5.1 ([39d066e](https://github.com/nicojs/typed-html/commit/39d066e))
 * chore(package-lock): Add package lock file ([7df4e1b](https://github.com/nicojs/typed-html/commit/7df4e1b))
 * docks(package): Add a description ([3e5765e](https://github.com/nicojs/typed-html/commit/3e5765e))
 
