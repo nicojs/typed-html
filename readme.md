@@ -138,6 +138,23 @@ Prints:
 </div>
 ```
 
+## Sanitization
+
+Security is *NOT* a feature. This library does *NOT* sanitize.
+
+```ts
+const script = '<script>alert("hacked!")</script>';
+const body = <body>{script}</body>;
+```
+
+Will result in:
+
+```html
+<body><script>alert('hacked!');</script></body>
+```
+
+If you need sanitization, you can use something like [sanitize-html](https://www.npmjs.com/package/sanitize-html).
+
 ## Supported HTML
 
 All HTML elements and attributes are supported, except for the [svg](https://www.w3.org/TR/SVG/).
