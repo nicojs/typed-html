@@ -1,6 +1,6 @@
 {
   "name": "typed-html",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "TypeSafe HTML templates using TypeScript. No need to learn a template library.",
   "main": "src/elements.js",
   "typings": "src/elements.d.ts",
