@@ -15,8 +15,11 @@
     "test": "mocha",
     "preversion": "npm test",
     "version": "npm run generate-changelog",
-    "generate-changelog": "conventional-changelog -r 0 > CHANGELOG.md && git add CHANGELOG.md",
-    "start": "tsc -w -p ."
+    "generate-changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "start": "tsc -w -p .",
+    "release:patch": "npm version patch -m \"chore(release): %s\"",
+    "release:minor": "npm version minor -m \"chore(release): %s\"",
+    "release:major": "npm version major -m \"chore(release): %s\""
   },
   "engines": {
     "node": ">=6"
