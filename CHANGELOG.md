@@ -1,3 +1,12 @@
+## [0.6.1](https://github.com/nicojs/typed-html/compare/v0.6.0...v0.6.1) (2018-12-21)
+
+
+### Bug Fixes
+
+* **typings:** Don't publish source files to npm (typings instead) ([37bc753](https://github.com/nicojs/typed-html/commit/37bc753))
+
+
+
 # [0.6.0](https://github.com/nicojs/typed-html/compare/v0.5.1...v0.6.0) (2018-01-22)
 
 
