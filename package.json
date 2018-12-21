@@ -15,6 +15,7 @@
     "test": "mocha",
     "preversion": "npm test",
     "version": "npm run generate-changelog",
+    "postversion": "npm publish && git push && git push --tags",
     "generate-changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "start": "tsc -w -p .",
     "release:patch": "npm version patch -m \"chore(release): %s\"",
