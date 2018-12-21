@@ -3,7 +3,7 @@
   "version": "0.6.2",
   "description": "TypeSafe HTML templates using TypeScript. No need to learn a template library.",
   "main": "src/elements.js",
-  "typings": "src/elements.tsx",
+  "typings": "src/elements.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/nicojs/typed-html"
