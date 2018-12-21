@@ -1,3 +1,12 @@
+## [0.6.2](https://github.com/nicojs/typed-html/compare/v0.6.1...v0.6.2) (2018-12-21)
+
+
+### Bug Fixes
+
+* **typings:** Don't publish *.tsx files to npm ([a65b272](https://github.com/nicojs/typed-html/commit/a65b272))
+
+
+
 ## [0.6.1](https://github.com/nicojs/typed-html/compare/v0.6.0...v0.6.1) (2018-12-21)
 
 
