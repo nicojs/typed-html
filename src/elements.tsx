@@ -7,7 +7,7 @@ import * as os from 'os';
 type AttributeValue = number | string | Date | boolean;
 
 export interface CustomElementHandler {
-    (attributes: Attributes | undefined, contents: string[]): string
+    (attributes: Attributes | undefined, contents: string[]): string;
 }
 
 export interface Attributes {
@@ -108,8 +108,8 @@ const isVoidElement = (tagName: string) => {
 };
 
 export function createElement(name: string | CustomElementHandler,
-                              attributes: Attributes | undefined,
-                              ...contents: string[]) {
+    attributes: Attributes | undefined,
+    ...contents: string[]) {
     if (typeof name === 'function') {
         return name(attributes, contents);
     } else {
