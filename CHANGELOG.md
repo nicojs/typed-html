@@ -1,3 +1,7 @@
+# [1.0.0](https://github.com/nicojs/typed-html/compare/v0.6.3...v1.0.0) (2019-02-12)
+
+
+
 ## [0.6.3](https://github.com/nicojs/typed-html/compare/v0.6.2...v0.6.3) (2018-12-21)
 
 
