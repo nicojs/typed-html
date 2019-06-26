@@ -23,7 +23,7 @@
     "release:major": "npm version major -m \"chore(release): %s\""
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "keywords": [
     "typescript",
