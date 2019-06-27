@@ -10,7 +10,8 @@
         "**/*?.js": {
             "when": "$(basename).tsx"
         },
-        "**/*.d.ts": true,
+        "*/*.d.ts": true,
+        "src/jsx/*.d.ts": false,
         "**/*.map": true,
         "**/*.tsbuildinfo": true
     },

@@ -4,13 +4,14 @@
   "description": "TypeSafe HTML templates using TypeScript. No need to learn a template library.",
   "main": "src/elements.js",
   "typings": "src/elements.d.ts",
+  "module": "dist/elements.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/nicojs/typed-html"
   },
   "scripts": {
-    "prebuild": "rimraf \"+(test|src)/**/*.+(js|map|tsbuildinfo|d.ts)\" dist",
-    "build": "tsc -b",
+    "prebuild": "rimraf \"+(test|src)/*.+(js|map|tsbuildinfo|d.ts)\" dist",
+    "build": "tsc -b && tsc -p src --outDir dist --module esnext --target esnext",
     "pretest": "npm run build",
     "test": "mocha",
     "preversion": "npm test",

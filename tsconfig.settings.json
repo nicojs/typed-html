@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "es5",
+        "target": "es2018",
         "declaration": true,
         "composite": true,
         "declarationMap": true,
