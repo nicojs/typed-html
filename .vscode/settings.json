@@ -5,10 +5,14 @@
         "**/.hg": true,
         "**/.DS_Store": true,
         "**/*.js": {
+            "when": "$(basename).ts"
+        },
+        "**/*?.js": {
             "when": "$(basename).tsx"
         },
-        "**.d.ts": true,
-        "**/*.map": true
+        "**/*.d.ts": true,
+        "**/*.map": true,
+        "**/*.tsbuildinfo": true
     },
     "typescript.tsdk": "./node_modules/typescript/lib"
 }
