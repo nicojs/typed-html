@@ -1,8 +1,6 @@
-/// <reference path="./jsx/element-types.ts" />
-/// <reference path="./jsx/events.ts" />
-/// <reference path="./jsx/intrinsic-elements.ts" />
-
-import * as os from 'os';
+/// <reference path="./jsx/element-types.d.ts" />
+/// <reference path="./jsx/events.d.ts" />
+/// <reference path="./jsx/intrinsic-elements.d.ts" />
 
 type AttributeValue = number | string | Date | boolean;
 
@@ -79,8 +77,8 @@ const attributesToString = (attributes: Attributes | undefined): string => {
 const contentsToString = (contents: any[] | undefined) => {
     if (contents) {
         return contents
-            .map(elements => Array.isArray(elements) ? elements.join(os.EOL) : elements)
-            .join(os.EOL);
+            .map(elements => Array.isArray(elements) ? elements.join('\n') : elements)
+            .join('\n');
     } else {
         return '';
     }

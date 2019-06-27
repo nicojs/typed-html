@@ -1,7 +1,5 @@
 declare namespace JSX {
-
     type Element = string;
-
     interface IntrinsicElements {
         a: HtmlAnchorTag;
         abbr: HtmlTag;
@@ -100,7 +98,7 @@ declare namespace JSX {
         sup: HtmlTag;
         table: HtmlTableTag;
         tbody: HtmlTag;
-        td: HtmlTableDataCellTag ;
+        td: HtmlTableDataCellTag;
         template: HtmlTag;
         textarea: HtmlTextAreaTag;
         tfoot: HtmlTableSectionTag;
@@ -117,3 +115,4 @@ declare namespace JSX {
         wbr: HtmlTag;
     }
 }
+//# sourceMappingURL=intrinsic-elements.d.ts.map

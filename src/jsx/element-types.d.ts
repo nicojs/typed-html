@@ -1,7 +1,4 @@
 declare namespace JSX {
-
-    // Source: https://dev.w3.org/html5/html-author/#the-elements
-
     interface HtmlTag {
         accesskey?: string;
         class?: string;
@@ -18,7 +15,6 @@ declare namespace JSX {
         title?: string;
         translate?: string | boolean;
     }
-
     interface HtmlAnchorTag extends HtmlTag {
         href?: string;
         target?: string;
@@ -29,8 +25,6 @@ declare namespace JSX {
         hreflang?: string;
         type?: string;
     }
-
-
     interface HtmlAreaTag extends HtmlTag {
         alt?: string;
         coords?: string;
@@ -43,7 +37,6 @@ declare namespace JSX {
         hreflang?: string;
         type?: string;
     }
-
     interface HtmlAudioTag extends HtmlTag {
         src?: string;
         autobuffer?: string;
@@ -51,7 +44,6 @@ declare namespace JSX {
         loop?: string;
         controls?: string;
     }
-
     interface BaseTag extends HtmlTag {
         href?: string;
         target?: string;
@@ -59,10 +51,8 @@ declare namespace JSX {
     interface HtmlQuoteTag extends HtmlTag {
         cite?: string;
     }
-
     interface HtmlBodyTag extends HtmlTag {
     }
-
     interface HtmlButtonTag extends HtmlTag {
         action?: string;
         autofocus?: string;
@@ -76,56 +66,65 @@ declare namespace JSX {
         type?: string;
         value?: string;
     }
-
     interface HtmlDataListTag extends HtmlTag {
     }
-
     interface HtmlCanvasTag extends HtmlTag {
         width?: string;
         height?: string;
     }
-
     interface HtmlTableColTag extends HtmlTag {
         span?: string;
     }
-
     interface HtmlTableSectionTag extends HtmlTag {
     }
-
     interface HtmlTableRowTag extends HtmlTag {
     }
-
     interface DataTag extends HtmlTag {
         value?: string;
     }
     interface HtmlEmbedTag extends HtmlTag {
-        src?: string; type?: string; width?: string; height?: string;
+        src?: string;
+        type?: string;
+        width?: string;
+        height?: string;
         [anything: string]: string | boolean | undefined;
     }
-
     interface HtmlFieldSetTag extends HtmlTag {
         disabled?: string;
         form?: string;
         name?: string;
     }
-
     interface HtmlFormTag extends HtmlTag {
         acceptCharset?: string;
-        action?: string; autocomplete?: string; enctype?: string; method?: string; name?: string; novalidate?: string | boolean; target?: string;
+        action?: string;
+        autocomplete?: string;
+        enctype?: string;
+        method?: string;
+        name?: string;
+        novalidate?: string | boolean;
+        target?: string;
     }
-
     interface HtmlHtmlTag extends HtmlTag {
         manifest?: string;
     }
-
     interface HtmlIFrameTag extends HtmlTag {
-        src?: string; srcdoc?: string; name?: string; sandbox?: string; seamless?: string; width?: string; height?: string;
+        src?: string;
+        srcdoc?: string;
+        name?: string;
+        sandbox?: string;
+        seamless?: string;
+        width?: string;
+        height?: string;
     }
-
     interface HtmlImageTag extends HtmlTag {
-        alt?: string; src?: string; crossorigin?: string; usemap?: string; ismap?: string; width?: string; height?: string;
+        alt?: string;
+        src?: string;
+        crossorigin?: string;
+        usemap?: string;
+        ismap?: string;
+        width?: string;
+        height?: string;
     }
-
     interface HtmlInputTag extends HtmlTag {
         accept?: string;
         action?: string;
@@ -157,24 +156,25 @@ declare namespace JSX {
         value?: string;
         width?: string;
     }
-
     interface HtmlModTag extends HtmlTag {
         cite?: string;
         datetime?: string | Date;
     }
-
     interface KeygenTag extends HtmlTag {
-        autofocus?: string; challenge?: string; disabled?: string; form?: string; keytype?: string; name?: string;
+        autofocus?: string;
+        challenge?: string;
+        disabled?: string;
+        form?: string;
+        keytype?: string;
+        name?: string;
     }
-
     interface HtmlLabelTag extends HtmlTag {
-        form?: string; for?: string;
+        form?: string;
+        for?: string;
     }
-
     interface HtmlLITag extends HtmlTag {
         value?: string | number;
     }
-
     interface HtmlLinkTag extends HtmlTag {
         href?: string;
         crossorigin?: string;
@@ -185,18 +185,15 @@ declare namespace JSX {
         sizes?: string;
         integrity?: string;
     }
-
     interface HtmlMapTag extends HtmlTag {
         name?: string;
     }
-
     interface HtmlMetaTag extends HtmlTag {
         name?: string;
         httpEquiv?: string;
         content?: string;
         charset?: string;
     }
-
     interface HtmlMeterTag extends HtmlTag {
         value?: string | number;
         min?: string | number;
@@ -205,35 +202,42 @@ declare namespace JSX {
         high?: string | number;
         optimum?: string | number;
     }
-
     interface HtmlObjectTag extends HtmlTag {
-        data?: string; type?: string; name?: string; usemap?: string; form?: string; width?: string; height?: string;
+        data?: string;
+        type?: string;
+        name?: string;
+        usemap?: string;
+        form?: string;
+        width?: string;
+        height?: string;
     }
-
     interface HtmlOListTag extends HtmlTag {
-        reversed?: string; start?: string | number;
+        reversed?: string;
+        start?: string | number;
     }
-
     interface HtmlOptgroupTag extends HtmlTag {
-        disabled?: string; label?: string;
+        disabled?: string;
+        label?: string;
     }
-
     interface HtmlOptionTag extends HtmlTag {
-        disabled?: string; label?: string; selected?: string; value?: string;
+        disabled?: string;
+        label?: string;
+        selected?: string;
+        value?: string;
     }
-
     interface HtmlOutputTag extends HtmlTag {
-        for?: string; form?: string; name?: string;
+        for?: string;
+        form?: string;
+        name?: string;
     }
-
     interface HtmlParamTag extends HtmlTag {
-        name?: string; value?: string;
+        name?: string;
+        value?: string;
     }
-
     interface HtmlProgressTag extends HtmlTag {
-        value?: string | number; max?: string | number;
+        value?: string | number;
+        max?: string | number;
     }
-
     interface HtmlCommandTag extends HtmlTag {
         type?: string;
         label?: string;
@@ -243,18 +247,15 @@ declare namespace JSX {
         radiogroup?: string;
         default?: string;
     }
-
-    interface HtmlLegendTag extends HtmlTag { }
-
+    interface HtmlLegendTag extends HtmlTag {
+    }
     interface HtmlBrowserButtonTag extends HtmlTag {
         type?: string;
     }
-
     interface HtmlMenuTag extends HtmlTag {
         type?: string;
         label?: string;
     }
-
     interface HtmlScriptTag extends HtmlTag {
         src?: string;
         type?: string;
@@ -265,46 +266,67 @@ declare namespace JSX {
         integrity?: string;
         text?: string;
     }
-
     interface HtmlDetailsTag extends HtmlTag {
         open?: string;
     }
-
     interface HtmlSelectTag extends HtmlTag {
-        autofocus?: string; disabled?: string; form?: string; multiple?: string; name?: string; required?: string; size?: string;
+        autofocus?: string;
+        disabled?: string;
+        form?: string;
+        multiple?: string;
+        name?: string;
+        required?: string;
+        size?: string;
     }
-
     interface HtmlSourceTag extends HtmlTag {
-        src?: string; type?: string; media?: string;
+        src?: string;
+        type?: string;
+        media?: string;
     }
-
     interface HtmlStyleTag extends HtmlTag {
-        media?: string; type?: string; disabled?: string; scoped?: string;
+        media?: string;
+        type?: string;
+        disabled?: string;
+        scoped?: string;
     }
-
     interface HtmlTableTag extends HtmlTag {
     }
-
     interface HtmlTableDataCellTag extends HtmlTag {
-        colspan?: string | number; rowspan?: string | number; headers?: string;
+        colspan?: string | number;
+        rowspan?: string | number;
+        headers?: string;
     }
-
     interface HtmlTextAreaTag extends HtmlTag {
-        autofocus?: string; cols?: string; dirname?: string; disabled?: string; form?: string; maxlength?: string; minlength?: string; name?: string; placeholder?: string; readonly?: string; required?: string; rows?: string; wrap?: string;
+        autofocus?: string;
+        cols?: string;
+        dirname?: string;
+        disabled?: string;
+        form?: string;
+        maxlength?: string;
+        minlength?: string;
+        name?: string;
+        placeholder?: string;
+        readonly?: string;
+        required?: string;
+        rows?: string;
+        wrap?: string;
     }
-
     interface HtmlTableHeaderCellTag extends HtmlTag {
-        colspan?: string | number; rowspan?: string | number; headers?: string; scope?: string;
+        colspan?: string | number;
+        rowspan?: string | number;
+        headers?: string;
+        scope?: string;
     }
-
     interface HtmlTimeTag extends HtmlTag {
         datetime?: string | Date;
     }
-
     interface HtmlTrackTag extends HtmlTag {
-        default?: string; kind?: string; label?: string; src?: string; srclang?: string;
+        default?: string;
+        kind?: string;
+        label?: string;
+        src?: string;
+        srclang?: string;
     }
-
     interface HtmlVideoTag extends HtmlTag {
         src?: string;
         poster?: string;
@@ -316,3 +338,4 @@ declare namespace JSX {
         height?: string;
     }
 }
+//# sourceMappingURL=element-types.d.ts.map

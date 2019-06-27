@@ -1,8 +1,4 @@
 declare namespace JSX {
-
-    // http://htmlcss.wikia.com/wiki/HTML5_Event_Attributes
-
-    // Only used in the <body> element to specify events triggered for a window object. 
     interface HtmlBodyTag {
         onafterprint?: string;
         onbeforeprint?: string;
@@ -23,9 +19,7 @@ declare namespace JSX {
         onstorage?: string;
         onundo?: string;
         onunload?: string;
-
     }
-
     interface HtmlTag {
         oncontextmenu?: string;
         onkeydown?: string;
@@ -48,8 +42,6 @@ declare namespace JSX {
         onmousewheel?: string;
         onscroll?: string;
     }
-
-    // Applies to all HTML5 elements, but is most common in <audio>, <embed />, <img />, <object>, and <video>.
     interface FormEvents {
         onblur?: string;
         onchange?: string;
@@ -63,15 +55,10 @@ declare namespace JSX {
     }
     interface HtmlInputTag extends FormEvents {
     }
-
     interface HtmlFieldSetTag extends FormEvents {
     }
-
     interface HtmlFormTag extends FormEvents {
     }
-
-
-    // Applies to all HTML5 elements, but is most common in <audio>, <embed />, <img />, <object>, and <video>.
     interface MediaEvents {
         onabort?: string;
         oncanplay?: string;
@@ -97,9 +84,15 @@ declare namespace JSX {
         onvolumechange?: string;
         onwaiting?: string;
     }
-    interface HtmlAudioTag extends MediaEvents { }
-    interface HtmlEmbedTag extends MediaEvents { }
-    interface HtmlImageTag extends MediaEvents { }
-    interface HtmlObjectTag extends MediaEvents { }
-    interface HtmlVideoTag extends MediaEvents { }
+    interface HtmlAudioTag extends MediaEvents {
+    }
+    interface HtmlEmbedTag extends MediaEvents {
+    }
+    interface HtmlImageTag extends MediaEvents {
+    }
+    interface HtmlObjectTag extends MediaEvents {
+    }
+    interface HtmlVideoTag extends MediaEvents {
+    }
 }
+//# sourceMappingURL=events.d.ts.map
