@@ -1,3 +1,19 @@
+# [2.0.0](https://github.com/nicojs/typed-html/compare/v1.0.0...v2.0.0) (2019-06-27)
+
+
+### Features
+
+* **browser:** support browsers as well as node ([#8](https://github.com/nicojs/typed-html/issues/8)) ([0493b92](https://github.com/nicojs/typed-html/commit/0493b92))
+* **node 6:** drop support for node 6 ([#7](https://github.com/nicojs/typed-html/issues/7)) ([6f8ea92](https://github.com/nicojs/typed-html/commit/6f8ea92))
+
+
+### BREAKING CHANGES
+
+* **browser:** emitted new lines in strings are no longer platform dependent. `\n` is now always used.
+* **node 6:** Node 6 is no longer supported.
+
+
+
 # [1.0.0](https://github.com/nicojs/typed-html/compare/v0.6.3...v1.0.0) (2019-02-12)
 
 
