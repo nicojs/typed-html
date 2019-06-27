@@ -2,5 +2,3 @@ node_modules
 *.js
 *.d.ts
 *.map
-!src/jsx/*.d.ts
-!tasks/*.js

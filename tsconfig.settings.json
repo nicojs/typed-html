@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "declaration": true,
+        "composite": true,
+        "declarationMap": true,
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noUnusedLocals": true,
+        "noImplicitReturns": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitThis": true,
+        "jsx": "react",
+        "jsxFactory": "elements.createElement",
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "types": []
+    }
+}

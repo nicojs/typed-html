@@ -1,6 +1,6 @@
-/// <reference path="./jsx/element-types.d.ts" />
-/// <reference path="./jsx/events.d.ts" />
-/// <reference path="./jsx/intrinsic-elements.d.ts" />
+/// <reference path="./jsx/element-types.ts" />
+/// <reference path="./jsx/events.ts" />
+/// <reference path="./jsx/intrinsic-elements.ts" />
 
 import * as os from 'os';
 

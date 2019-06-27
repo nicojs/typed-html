@@ -9,8 +9,8 @@
     "url": "https://github.com/nicojs/typed-html"
   },
   "scripts": {
-    "prebuild": "node tasks/clean.js",
-    "build": "tsc",
+    "prebuild": "rimraf \"+(test|src)/**/*.+(js|map|tsbuildinfo|d.ts)\" dist",
+    "build": "tsc -b",
     "pretest": "npm run build",
     "test": "mocha",
     "preversion": "npm test",
@@ -34,22 +34,23 @@
   "author": "Nico Jansen <jansennico@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "@stryker-mutator/core": "^2.0.0",
+    "@stryker-mutator/html-reporter": "^2.0.0",
+    "@stryker-mutator/mocha-framework": "^2.0.0",
+    "@stryker-mutator/mocha-runner": "^2.0.0",
+    "@stryker-mutator/typescript": "^2.0.0",
     "@types/chai": "^4.1.7",
-    "@types/mocha": "^5.2.5",
-    "@types/node": "^11.9.0",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.0.10",
     "chai": "^4.2.0",
-    "conventional-changelog-cli": "^2.0.11",
+    "conventional-changelog-cli": "^2.0.21",
     "html-differ": "^1.4.0",
-    "mocha": "^5.2.0",
+    "mocha": "^6.1.4",
     "rimraf": "^2.6.3",
-    "source-map-support": "^0.5.10",
-    "stryker": "^0.35.0",
-    "stryker-api": "^0.24.0",
-    "stryker-html-reporter": "^0.18.0",
-    "stryker-mocha-framework": "^0.15.0",
-    "stryker-mocha-runner": "^0.17.0",
-    "stryker-typescript": "^0.18.0",
-    "tslint": "^5.12.1",
-    "typescript": "~3.3.3"
+    "source-map-support": "^0.5.12",
+    "tslint": "^5.18.0"
+  },
+  "dependencies": {
+    "typescript": "^3.5.2"
   }
 }

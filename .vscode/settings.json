@@ -7,9 +7,8 @@
         "**/*.js": {
             "when": "$(basename).tsx"
         },
-        "src/elements.d.ts": true,
-        "test/**/*.d.ts": true,
-        "**/*.js.map": true
+        "**.d.ts": true,
+        "**/*.map": true
     },
     "typescript.tsdk": "./node_modules/typescript/lib"
 }

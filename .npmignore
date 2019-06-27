@@ -1,4 +1,4 @@
 **/**
-!src/**
-src/**/*.tsx
+!readme.md
+!src/**/*.js
 !src/**/*.d.ts

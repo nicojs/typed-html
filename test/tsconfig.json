@@ -1,0 +1,14 @@
+{
+    "extends": "../tsconfig.settings.json",
+    "compilerOptions": {
+        "types": [
+            "mocha",
+            "node"
+        ]
+    },
+    "references": [
+        {
+            "path": "../src"
+        }
+    ]
+}
