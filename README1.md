@@ -79,6 +79,19 @@ However, the following piece of code will **NOT** compile:
 <a foo="bar"></a>; // => Error:  Property 'foo' does not exist on type 'HtmlAnchorTag'
 ```
 
+## Supported environments
+
+Typed HTML supports both NodeJS and (since 2.0) the browser.
+
+For use in the browser, either load typed-html as a module, or use a bundler like webpack or rollup to bundle the package for you.
+
+```ts
+// Direct ES import:
+import * as elements from './node_modules/typed-html/dist/elements.js';
+// OR, when using a bundler like rollup or webpack
+import * as elements from 'typed-html';
+```
+
 ## Supported scenarios
 
 All template scenarios are supported with plain TypeScript.

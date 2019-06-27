@@ -1,5 +1,4 @@
 **/**
 !dist/*.?(js|d.ts)
 !readme.md
-!src/**/*.js
-!src/**/*.d.ts
+!src/**/*.?(js|d.ts)
