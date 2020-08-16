@@ -3,7 +3,8 @@
 /// <reference path="./jsx/intrinsic-elements.d.ts" />
 
 type AttributeValue = number | string | Date | boolean | string[];
-type Children = {
+
+export type Children = {
     children?: AttributeValue
 };
 
