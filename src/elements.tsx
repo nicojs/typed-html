@@ -4,7 +4,7 @@
 
 type AttributeValue = number | string | Date | boolean;
 type Children = {
-    children?: string[]
+    children?: AttributeValue
 };
 
 export interface CustomElementHandler {
@@ -69,6 +69,7 @@ const attributeToString = (attributes: Attributes) => (name: string): string => 
 const attributesToString = (attributes: Attributes | undefined): string => {
     if (attributes) {
         return ' ' + Object.keys(attributes)
+            .filter(attribute => attribute !== 'children') // filter out children attributes
             .map(attributeToString(attributes))
             .filter(attribute => attribute.length) // filter out negative boolean attributes
             .join(' ');
@@ -109,16 +110,20 @@ const isVoidElement = (tagName: string) => {
 };
 
 export function createElement(name: string | CustomElementHandler,
-    attributes: Attributes | undefined = {},
+    attributes: Attributes & Children | undefined = {},
     ...contents: string[]) {
+    const children = attributes && attributes.children || contents;
+
     if (typeof name === 'function') {
-        return name(attributes, contents);
+        // @ts-ignore: Figure this out
+        return name(children ? { children, ...attributes } : attributes, contents);
     } else {
         const tagName = toKebabCase(name);
         if (isVoidElement(tagName) && !contents.length) {
             return `<${tagName}${attributesToString(attributes)}>`;
         } else {
-            return `<${tagName}${attributesToString(attributes)}>${contentsToString(contents)}</${tagName}>`;
+            // @ts-ignore: Figure this out
+            return `<${tagName}${attributesToString(attributes)}>${contentsToString(children)}</${tagName}>`;
         }
     }
 }
