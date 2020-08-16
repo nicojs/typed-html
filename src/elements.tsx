@@ -3,9 +3,12 @@
 /// <reference path="./jsx/intrinsic-elements.d.ts" />
 
 type AttributeValue = number | string | Date | boolean;
+type Children = {
+    children?: string[]
+};
 
 export interface CustomElementHandler {
-    (attributes: Attributes | undefined, contents: string[]): string;
+    (attributes: Attributes & Children, contents: string[]): string;
 }
 
 export interface Attributes {
@@ -106,7 +109,7 @@ const isVoidElement = (tagName: string) => {
 };
 
 export function createElement(name: string | CustomElementHandler,
-    attributes: Attributes | undefined,
+    attributes: Attributes | undefined = {},
     ...contents: string[]) {
     if (typeof name === 'function') {
         return name(attributes, contents);
