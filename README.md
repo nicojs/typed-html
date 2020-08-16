@@ -151,6 +151,28 @@ Prints:
 </div>
 ```
 
+#### React-style children
+
+It's possible to write React-style components as well. Consider the example below.
+
+```typescript
+import {Attributes, CustomElementHandler} from "typed-html"
+
+function Button({ children, ...attributes }: Attributes) {
+    return <div><button type="button" class="original-class" {...attributes}>{children}</button></div>;
+}
+
+console.log(<Button style="color:#f00">Button Text</Button>);
+```
+
+Prints:
+
+```html
+<div>
+    <button type="button" class="original-class" style="color:#f00">Button Text</button>
+</div>
+```
+
 ## Sanitization
 
 Security is *NOT* a feature. This library does *NOT* sanitize.
