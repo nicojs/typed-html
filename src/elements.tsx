@@ -2,7 +2,7 @@
 /// <reference path="./jsx/events.d.ts" />
 /// <reference path="./jsx/intrinsic-elements.d.ts" />
 
-type AttributeValue = number | string | Date | boolean;
+type AttributeValue = number | string | Date | boolean | string[];
 type Children = {
     children?: AttributeValue
 };
@@ -115,15 +115,13 @@ export function createElement(name: string | CustomElementHandler,
     const children = attributes && attributes.children || contents;
 
     if (typeof name === 'function') {
-        // @ts-ignore: Figure this out
         return name(children ? { children, ...attributes } : attributes, contents);
     } else {
         const tagName = toKebabCase(name);
         if (isVoidElement(tagName) && !contents.length) {
             return `<${tagName}${attributesToString(attributes)}>`;
         } else {
-            // @ts-ignore: Figure this out
-            return `<${tagName}${attributesToString(attributes)}>${contentsToString(children)}</${tagName}>`;
+            return `<${tagName}${attributesToString(attributes)}>${contentsToString(contents)}</${tagName}>`;
         }
     }
 }
