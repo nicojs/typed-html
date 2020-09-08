@@ -4,9 +4,9 @@
 
 type AttributeValue = number | string | Date | boolean | string[];
 
-export type Children = {
-    children?: AttributeValue
-};
+export interface Children {
+    children?: AttributeValue;
+}
 
 export interface CustomElementHandler {
     (attributes: Attributes & Children, contents: string[]): string;
