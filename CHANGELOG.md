@@ -1,7 +1,3 @@
-### Features
-
-* Support React-style `children` within `elements.Attributes`.
-
 # [2.0.0](https://github.com/nicojs/typed-html/compare/v1.0.0...v2.0.0) (2019-06-27)
 
 
