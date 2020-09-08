@@ -2,10 +2,14 @@
 /// <reference path="./jsx/events.d.ts" />
 /// <reference path="./jsx/intrinsic-elements.d.ts" />
 
-type AttributeValue = number | string | Date | boolean;
+type AttributeValue = number | string | Date | boolean | string[];
+
+export interface Children {
+    children?: AttributeValue;
+}
 
 export interface CustomElementHandler {
-    (attributes: Attributes | undefined, contents: string[]): string;
+    (attributes: Attributes & Children, contents: string[]): string;
 }
 
 export interface Attributes {
@@ -66,6 +70,7 @@ const attributeToString = (attributes: Attributes) => (name: string): string => 
 const attributesToString = (attributes: Attributes | undefined): string => {
     if (attributes) {
         return ' ' + Object.keys(attributes)
+            .filter(attribute => attribute !== 'children') // filter out children attributes
             .map(attributeToString(attributes))
             .filter(attribute => attribute.length) // filter out negative boolean attributes
             .join(' ');
@@ -106,10 +111,12 @@ const isVoidElement = (tagName: string) => {
 };
 
 export function createElement(name: string | CustomElementHandler,
-    attributes: Attributes | undefined,
+    attributes: Attributes & Children | undefined = {},
     ...contents: string[]) {
+    const children = attributes && attributes.children || contents;
+
     if (typeof name === 'function') {
-        return name(attributes, contents);
+        return name(children ? { children, ...attributes } : attributes, contents);
     } else {
         const tagName = toKebabCase(name);
         if (isVoidElement(tagName) && !contents.length) {
