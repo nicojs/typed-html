@@ -1,4 +1,3 @@
-
 import * as elements from '../src/elements';
 import { expect } from 'chai';
 const logger = require('html-differ/lib/logger');
@@ -6,7 +5,7 @@ const HtmlDiffer = require('html-differ').HtmlDiffer;
 
 const singleLine = (input: string) => input.replace(/\r\n/g, '').replace(/\n/g, '');
 
-const testEqual = (expected: string, actual: () => string, itImplementation: (expectation: string, callback?: (this: Mocha.ITestCallbackContext, done: MochaDone) => any) => Mocha.ITest = it) => {
+const testEqual = (expected: string, actual: () => string, itImplementation: (expectation: string, callback?: (this: Mocha.Context, done: Mocha.Done) => any) => Mocha.Test = it) => {
     itImplementation(`should parse "${singleLine(expected)}" correctly`, () => {
         const htmlDiffer = new HtmlDiffer();
         const diff: string = logger.getDiffText(htmlDiffer.diffHtml(expected, actual()));
