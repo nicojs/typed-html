@@ -35,23 +35,21 @@
   "author": "Nico Jansen <jansennico@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "@stryker-mutator/core": "^2.0.0",
-    "@stryker-mutator/html-reporter": "^2.0.0",
-    "@stryker-mutator/mocha-framework": "^2.0.0",
-    "@stryker-mutator/mocha-runner": "^2.0.0",
-    "@stryker-mutator/typescript": "^2.0.0",
-    "@types/chai": "^4.1.7",
-    "@types/mocha": "^5.2.7",
-    "@types/node": "^12.0.10",
-    "chai": "^4.2.0",
-    "conventional-changelog-cli": "^2.0.21",
+    "@stryker-mutator/core": "^5.2.2",
+    "@stryker-mutator/mocha-runner": "^5.2.2",
+    "@stryker-mutator/typescript": "^4.0.0",
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.4.7",
+    "chai": "^4.3.4",
+    "conventional-changelog-cli": "^2.1.1",
     "html-differ": "^1.4.0",
-    "mocha": "^6.1.4",
-    "rimraf": "^2.6.3",
-    "source-map-support": "^0.5.12",
-    "tslint": "^5.18.0"
+    "mocha": "^9.0.3",
+    "rimraf": "^3.0.2",
+    "source-map-support": "^0.5.19",
+    "tslint": "^5.20.1"
   },
   "dependencies": {
-    "typescript": "^3.5.2"
+    "typescript": "^4.3.5"
   }
 }
