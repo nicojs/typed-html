@@ -5,3 +5,7 @@ node_modules
 *.map
 *.tsbuildinfo
 !src/jsx/*.d.ts
+
+# stryker files
+.stryker-tmp
+/reports
