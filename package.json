@@ -21,7 +21,7 @@
     "release:major": "npm version major -m \"chore(release): %s\""
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=12"
   },
   "keywords": [
     "typescript",
