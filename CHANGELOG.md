@@ -1,3 +1,18 @@
+# [3.0.0](https://github.com/nicojs/typed-html/compare/v2.0.0...v3.0.0) (2021-07-30)
+
+
+### Features
+
+* **node:** drop support for node 8 ([#30](https://github.com/nicojs/typed-html/issues/30)) ([2c422d1](https://github.com/nicojs/typed-html/commit/2c422d1cfdc3d008d87d33d2826459a7b1caacac))
+* support React-style children ([#16](https://github.com/nicojs/typed-html/issues/16)) ([b26c352](https://github.com/nicojs/typed-html/commit/b26c3520ba656b6bcfd84e99408fccb25deb8027))
+
+
+### BREAKING CHANGES
+
+* **node:** Support for Node > 12 is dropped (although it will still work)
+
+
+
 # [2.0.0](https://github.com/nicojs/typed-html/compare/v1.0.0...v2.0.0) (2019-06-27)
 
 
