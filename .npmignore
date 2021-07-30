@@ -1,4 +1,6 @@
 **/**
-!dist/*.?(js|d.ts)
+!dist/**
+dist/test/**
 !README.md
-!src/**/*.?(js|d.ts)
+!src/**
+tsconfig.json
