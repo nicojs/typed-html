@@ -141,6 +141,7 @@ declare namespace JSX {
         maxlength?: string;
         method?: string;
         min?: string;
+        minlength?: string;
         multiple?: string;
         name?: string;
         novalidate?: string | boolean;
