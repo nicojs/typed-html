@@ -3,7 +3,7 @@
   "version": "3.0.1",
   "description": "TypeSafe HTML templates using TypeScript. No need to learn a template library.",
   "main": "dist/src/elements.js",
-  "module": "dist/esm/elements.js",
+  "module": "dist/esm/src/elements.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/nicojs/typed-html"
