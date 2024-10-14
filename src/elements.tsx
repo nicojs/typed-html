@@ -2,7 +2,7 @@
 /// <reference path="./jsx/events.d.ts" />
 /// <reference path="./jsx/intrinsic-elements.d.ts" />
 
-type AttributeValue = number | string | Date | boolean | string[];
+type AttributeValue = any;
 
 export interface Children {
     children?: AttributeValue;

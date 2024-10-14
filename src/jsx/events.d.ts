@@ -19,6 +19,7 @@ declare namespace JSX {
         onstorage?: string;
         onundo?: string;
         onunload?: string;
+        _?: string;
     }
     interface HtmlTag {
         oncontextmenu?: string;
@@ -41,6 +42,7 @@ declare namespace JSX {
         onmouseup?: string;
         onmousewheel?: string;
         onscroll?: string;
+        _?: string;
     }
     interface FormEvents {
         onblur?: string;
